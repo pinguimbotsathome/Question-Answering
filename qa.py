@@ -8,7 +8,8 @@ def answer(model, question, context):
     qa_model = pipeline("question-answering", model=model)
     a = qa_model(question = question, context = context)
     print(a['answer'])
-    
+
+# reads context file
 def archive():
     path = os.path.abspath("context.txt")
     try:
@@ -19,8 +20,7 @@ def archive():
         print("Not found.")
 
 def main(question):
-    #model = "consciousAI/question-answering-roberta-base-s"
-    #model = "distilbert-base-uncased-distilled-squad"
+    # fastest model
     model = "deepset/tinyroberta-squad2"
     
     context = archive()
